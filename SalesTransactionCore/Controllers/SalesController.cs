@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
+using SalesTransaction.Interfaces;
 using SalesTransaction.Model;
 using SalesTransactionCore.ViewModel;
 
@@ -10,54 +11,22 @@ namespace SalesTransactionCore.Controllers
 {
     public class SalesController : Controller
     {
-        private readonly SalesDBContext _context;
-        public SalesController(SalesDBContext context)
+        private readonly ISalesService _salesService;
+        public SalesController(ISalesService salesService)
         {
-            _context = context; 
+            _salesService = salesService;
         }
-        public async Task<IActionResult> Index()
+
+        public IActionResult Index()
         {
-            return _context.Sailing != null ?
-                View(await _context.Sailing.ToListAsync()) :
-                Problem("Entity set 'SalesDbContext.Sailing' is null");
-
-            //List<SalesViewModel> svmList = new List<SalesViewModel>();
-            //var data = (from s in _context.Sailing
-            //            join p in _context.Products on s.ProductId equals p.ProductId
-            //            join c in _context.Customers on s.CustomerId equals c.CustomerId
-            //            select new
-            //            {
-            //                SalesId = s.SalesId,
-            //                CustomerId = s.CustomerId,
-            //                CustomerName = c.CustomerName,
-            //                ProductId = s.ProductId,
-            //                ProductName = p.ProductName,
-            //                Quantity = s.Quantity,
-            //                Rate = s.Rate,
-            //                InserDate = s.InserDate,
-            //            }).ToList();
-            //foreach (var item in data)
-            //{
-            //    svmList.Add(new SalesViewModel()
-            //    {
-            //        SalesId = item.SalesId,
-            //        CustomerId = item.CustomerId,
-            //        CustomerName = item.CustomerName,
-            //        ProductId = item.ProductId,
-            //        ProductName = item.ProductName,
-            //        Quantity = item.Quantity,
-            //        Rate = item.Rate,
-            //        InserDate = item.InserDate,
-            //    });
-            //}
-            //return View(svmList);
-
+            List<Sales> sales = _salesService.GetSales();
+            return View(sales);            
         }
-        [NoDirectAccess]
-        public async Task<IActionResult> AddOrEdit(int id = 0)
+
+        public IActionResult AddOrEdit(int id = 0)
         {
             SalesViewModel model = new SalesViewModel();
-            var salesData = _context.Customers;
+            var salesData = _salesService.GetCustomers();
             foreach (var data in salesData)
             {
                 model.CustomerList.Add(new SelectListItem
@@ -66,7 +35,7 @@ namespace SalesTransactionCore.Controllers
                     Text = data.CustomerName
                 });
             }
-            var ProductData = _context.Products;
+            var ProductData = _salesService.GetProducts();
             foreach (var data in ProductData)
             {
                 model.ProductList.Add(new SelectListItem
@@ -79,97 +48,94 @@ namespace SalesTransactionCore.Controllers
             return View(model);
             else
             {
-                var salesModel = await _context.Sailing.FindAsync(id);
+                var salesModel = _salesService.GetSale(id);
                 if(salesModel != null)
                 {
-                    //model.SalesId = salesModel.SalesId;
+                    model.SalesId = salesModel.SalesId;
                     model.CustomerId = salesModel.CustomerId;
+                    //model.CustomerName = salesModel.CustomerName;
                     model.ProductId = salesModel.ProductId;
+                    //model.ProductName = salesModel.ProductName;
                     model.Rate = salesModel.Rate;
                     model.Quantity = salesModel.Quantity;
-                    //model.Total = salesModel.Total;
                     model.InserDate = salesModel.InserDate;
-                    //model.ProductName = salesModel.ProductName;
-                    //model.CustomerName = salesModel.CustomerName;
                 }
                 return View(model);
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit(SalesViewModel model)
-        {          
-            if(ModelState.IsValid)
+        public IActionResult AddOrEdit(SalesViewModel model)
+        {
+            if (ModelState.IsValid)
             {
                 Sales sales = new Sales();
-                if (model.SalesId == 0)
-                {
-                    sales.CustomerId = Convert.ToInt32(model.CustomerId);
-                    sales.CustomerName = _context.Customers.Find(model.CustomerId).CustomerName;
-                    sales.ProductId = Convert.ToInt32(model.ProductId);
-                    sales.ProductName = _context.Products.Find(model.ProductId).ProductName;
-                    //model.SalesId = sales.SalesId;
-                    sales.Rate = model.Rate;
-                    sales.Quantity = model.Quantity;
-                    //model.Total = sales.Total;
-                    sales.InserDate = model.InserDate;
+             
 
-                    _context.Add(sales);
-                    await _context.SaveChangesAsync();
+                sales.SalesId = Convert.ToInt32(model.SalesId);
+
+                var productData = _salesService.GetProducts().Find(x => x.ProductId == model.ProductId);
+                sales.ProductId = Convert.ToInt32(model.ProductId);
+                sales.ProductName = "";
+                if(productData != null)
+                {
+                    sales.ProductName = productData.ProductName != null ? productData.ProductName : " ";
+                }
+                
+                var customerData = _salesService.GetCustomers().Find(x => x.CustomerId == model.CustomerId);
+                sales.CustomerId = Convert.ToInt32(model.CustomerId);
+                sales.CustomerName = "";
+                if(customerData != null)
+                {
+                    sales.CustomerName = customerData.CustomerName != null ? customerData.CustomerName : "";
+                }
+                sales.Rate = model.Rate;
+                sales.Quantity = model.Quantity;
+                sales.InserDate = sales.InserDate;
+
+                bool isEdit = sales.SalesId > 0 ? true : false;
+                var data = _salesService.AddOrEdit(sales);
+
+                if (isEdit == true)
+                {
+                    TempData["success"] = "Sales Edited Succesfully";
+                    return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "AddOrEdit", data) });
                 }
                 else
                 {
-                    try
-                    {
-                        _context.Update(model);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!SalesModelExists(model.SalesId))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
+                    List<Sales> sales1 = new List<Sales>();
+                    sales1 = _salesService.GetSales();
+                    TempData["success"] = "Sales Created Succesfully";
+                    return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", _salesService.GetSales().ToList()) });
                 }
-                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Sailing.ToList()) });
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", model) });
-            //return View(model);
+        }
 
-        }
-        private bool SalesModelExists(int id)
-        {
-            return (_context.Sailing?.Any(e => e.SalesId == id)).GetValueOrDefault();
-        }
+
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            if (_context.Sailing == null)
+            var data = _salesService.DeleteConfirmed(id);
+            if(data != null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Bankings'  is null.");
+                List<Sales> sales = new List<Sales>();
+                sales = _salesService.GetSales();
+              
             }
-            var sales = await _context.Sailing.FindAsync(id);
-            if (sales != null)
-            {
-                _context.Sailing.Remove(sales);
-            }
-
-            await _context.SaveChangesAsync();
             TempData["success"] = "Sales Deleted Succesfully";
-            return RedirectToAction(nameof(Index));
-            //return PartialView("_ViewAll");
+            return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", data) });
+            //return RedirectToAction(nameof(Index));
+
+
         }
-        public async Task<IActionResult> Invoice(int? id)
+
+        public IActionResult Invoice(int? id)
         {
             TempData["idFromView"] = id;
-            return View(_context.Sailing.Where(x => x.SalesId == id).ToList());           
+            return View(_salesService.GetSales().Where(x => x.SalesId == id).ToList());
 
         }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "01faxWYok1wPCZMktaxNn3Uc0H+0JgBRJ0OnhIzQK17debJv1uzBzI/EnosCMFzEPr2296AM3HNCRVFW/BgR4A==",
+  "dgSpecHash": "Lo7LrzHYDhJu8mAn5VjmRM0LKbsHlsF0wEaCvh9AfVJnOX8y1n8T2gvFUHA6z8mBjjwfqYlmLlUPN9tMGWk6qw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransactionCore\\SalesTransactionCore.csproj",
+  "projectFilePath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\SalesTransactionCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saura\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\saura\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

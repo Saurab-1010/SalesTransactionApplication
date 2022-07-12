@@ -1,19 +1,21 @@
 ﻿@*@model IEnumerable<SalesTransactionCore.ViewModel.SalesViewModel>*@
 @model IEnumerable<SalesTransaction.Model.Sales>
 
+
 @{
     ViewData["Title"] = "Generating Invoice";
     Layout = null;
 }
 
+<div class="card">
+  <div class="card-header">
+   <h3>Invoice Details</h3>
+  </div>
+  <div class="card-body">
 
-
-<table class="table" id="SalesId">
+    <table class="table" id="SalesId">
     <thead class="thead-light">
         <tr>
-   @*         <th>
-                @Html.DisplayNameFor(model => model.InvoiceId)
-            </t*@ 
                <th>
                 @Html.DisplayNameFor(model => model.SalesId)
             </th> 
@@ -45,9 +47,6 @@
        
 @foreach (var item in Model) {
         <tr>
-     @*             <td>
-                @Html.DisplayFor(modelItem => item.InvoiceId)
-            </td>*@
                <td>
                 @Html.DisplayFor(modelItem => item.SalesId)
             </td>
@@ -71,6 +70,58 @@
             </td>
             
             </tr>
+@*                  <tfoot>
+                      <td>
+               <b>Total Rs: @Html.DisplayFor(modelItem => item.Total) </b> 
+                          </td>   
+            </tfoot>*@
+}
+    </tbody>
+</table>
+
+<p>Invoice Summary</p>
+  <table class="table" id="InvoiceId">
+    <thead class="thead-light">
+        
+        <tr>
+               <th>
+                @Html.DisplayNameFor(model => model.InvoiceId)
+            </th> 
+                <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InserDate)
+            </th>      
+
+      
+          <th>               
+                         
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       
+@foreach (var item in Model) {
+        <tr>
+               <td>
+                @Html.DisplayFor(modelItem => item.InvoiceId)
+            </td>
+               <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td id = "total">
+                @Html.DisplayFor(modelItem => item.Total )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InserDate)
+            </td>
+   
+            
+            </tr>
                   <tfoot>
                       <td>
                <b>Total Rs: @Html.DisplayFor(modelItem => item.Total) </b> 
@@ -80,8 +131,13 @@
     </tbody>
 </table>
 
+    <button type="button" class="btn btn-primary" onclick="printPage()" runat="server">Print</button>   
+  </div>
+</div>
+
+
   
-<button type="button" onclick="printPage()" runat="server">Print</button>   
+
 
 
 
@@ -98,3 +154,8 @@
     }
 
  </script>
+
+ <script>
+
+
+</script>

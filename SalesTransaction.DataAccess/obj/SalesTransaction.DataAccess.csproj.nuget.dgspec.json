@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {}
+    "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {
+    "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj",
+        "projectUniqueName": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj",
         "projectName": "SalesTransaction.DataAccess",
-        "projectPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj",
+        "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj",
         "packagesPath": "C:\\Users\\saura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.DataAccess\\obj\\",
+        "outputPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
-                "projectPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj"
+              "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
+                "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
+    "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
+        "projectUniqueName": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
         "projectName": "SalesTransaction.Model",
-        "projectPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
+        "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
         "packagesPath": "C:\\Users\\saura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Model\\obj\\",
+        "outputPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

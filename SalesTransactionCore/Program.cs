@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
+using SalesTransaction.Interfaces;
 using SalesTransaction.Model;
+using SalesTransaction.Repositories;
+
 
 var builder = WebApplication.CreateBuilder(args);
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'SalesDBContextConnection' not found.");
@@ -37,6 +40,10 @@ builder.Services.AddDbContext<SalesDBContext>(item => item.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection"),
     s => s.MigrationsAssembly("SalesTransactionCore")
     ));
+//builder.Services.AddDbContext<SalesDBContext>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ISalesService, SalesService>();
 
 
 //for google 

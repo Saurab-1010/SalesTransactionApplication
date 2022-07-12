@@ -16,8 +16,8 @@ namespace SalesTransactionCore.ViewModel
         //public virtual Product Product { get; set; }
 
         //public string ProductName { get; set; }
-       // public string CustomerName { get; set; }
-        public int CustomerId { get; set; }
+        //public string CustomerName { get; set; }
+        public int? CustomerId { get; set; }
 
         public int InvoiceId { get; set; }
 

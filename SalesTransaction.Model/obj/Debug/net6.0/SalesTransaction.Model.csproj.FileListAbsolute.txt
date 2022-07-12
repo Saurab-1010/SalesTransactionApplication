@@ -10,3 +10,15 @@ C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Mod
 C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\refint\SalesTransaction.Model.dll
 C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.pdb
 C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\ref\SalesTransaction.Model.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\bin\Debug\net6.0\SalesTransaction.Model.deps.json
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\bin\Debug\net6.0\SalesTransaction.Model.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\bin\Debug\net6.0\SalesTransaction.Model.pdb
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.csproj.AssemblyReference.cache
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.AssemblyInfoInputs.cache
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.AssemblyInfo.cs
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.csproj.CoreCompileInputs.cache
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\refint\SalesTransaction.Model.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\SalesTransaction.Model.pdb
+D:\MyPractise\SalesTransactionApplication\SalesTransaction.Model\obj\Debug\net6.0\ref\SalesTransaction.Model.dll

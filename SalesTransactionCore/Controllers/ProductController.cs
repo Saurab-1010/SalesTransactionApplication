@@ -2,26 +2,26 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
+using SalesTransaction.Interfaces;
 using SalesTransaction.Model;
 
 namespace SalesTransactionCore.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly SalesDBContext _context;
-        public ProductController(SalesDBContext context)
+        private readonly IProductService _productService;
+        public ProductController(IProductService productService)
         {
-            _context = context;
+            _productService = productService;
         }   
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return _context.Products != null ?
-                       View(await _context.Products.ToListAsync()) :
-                      Problem("Entity set 'ProductsDBContext.Transactions'  is null.");
+            List<Product> products = _productService.GetProducts();
+            return View(products);
         }
 
         //GET
-        public async Task<IActionResult> AddOrEdit(int id = 0)
+        public IActionResult AddOrEdit(int id = 0)
         {
             if (id == 0)
             {
@@ -29,7 +29,7 @@ namespace SalesTransactionCore.Controllers
             }
             else
             {
-                var product = await _context.Customers.FindAsync(id);
+                var product = _productService.GetProduct(id);
                 if (product == null)
                 {
                     return NotFound();
@@ -38,62 +38,45 @@ namespace SalesTransactionCore.Controllers
             }
         }
         [HttpPost]
-        public async Task<ActionResult> AddOrEdit(int id, [Bind("ProductId, ProductName, Rate, AvailableStock")] Product product)
+        public ActionResult AddOrEdit(Product product)
         {
             if (ModelState.IsValid)
             {
-                if (id == 0)
+                bool isEdit = product.ProductId > 0 ? true : false;
+                var data = _productService.AddOrEdit(product);
+
+                if (isEdit == true)
                 {
-                    _context.Add(product);
-                    await _context.SaveChangesAsync();
+                    TempData["success"] = "Product Edited Succesfully";
+                    return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "AddOrEdit", data) });
                 }
                 else
                 {
-                    try
-                    {
-                        _context.Update(product);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!ProductExist(product.ProductId))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
+                    List<Product> products = new List<Product>();
+                    products = _productService.GetProducts();
+                    TempData["success"] = "Product Created Succesfully";
+                    return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", data) });
                 }
-                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Products.ToList()) });
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", product) });
-        }
-
-        private bool ProductExist(int id)
-        {
-            return (_context.Products?.Any(c => c.ProductId == id)).GetValueOrDefault();
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Products == null)
+            var data = _productService.DeleteConfirmed(id);
+            if( data != null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Bankings'  is null.");
-            }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-            }
+                List<Product> products = new List<Product>();
+                products = _productService.GetProducts();
 
-            await _context.SaveChangesAsync();
+            }
             TempData["success"] = "Product Deleted Succesfully";
-            return RedirectToAction(nameof(Index));
-            //return PartialView("_ViewAll");
+            return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", data) });
+            //return RedirectToAction(nameof(Index));
+
+
         }
 
     }

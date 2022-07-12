@@ -12,7 +12,7 @@ using SalesTransaction.DataAccess;
 namespace SalesTransactionCore.Migrations
 {
     [DbContext(typeof(SalesDBContext))]
-    [Migration("20220630150550_update-SalesTransaction.Model")]
+    [Migration("20220711102611_update-SalesTransaction.Model")]
     partial class updateSalesTransactionModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

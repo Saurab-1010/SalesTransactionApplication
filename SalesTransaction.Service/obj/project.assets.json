@@ -715,6 +715,39 @@
             "rid": "win"
           }
         }
+      },
+      "SalesTransaction.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.6",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.6",
+          "Microsoft.EntityFrameworkCore": "6.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.6",
+          "SalesTransaction.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SalesTransaction.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SalesTransaction.DataAccess.dll": {}
+        }
+      },
+      "SalesTransaction.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.6",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.6",
+          "Microsoft.EntityFrameworkCore": "6.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.6"
+        },
+        "compile": {
+          "bin/placeholder/SalesTransaction.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SalesTransaction.Model.dll": {}
+        }
       }
     }
   },
@@ -2135,6 +2168,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "SalesTransaction.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../SalesTransaction.DataAccess/SalesTransaction.DataAccess.csproj",
+      "msbuildProject": "../SalesTransaction.DataAccess/SalesTransaction.DataAccess.csproj"
+    },
+    "SalesTransaction.Model/1.0.0": {
+      "type": "project",
+      "path": "../SalesTransaction.Model/SalesTransaction.Model.csproj",
+      "msbuildProject": "../SalesTransaction.Model/SalesTransaction.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2142,7 +2185,9 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.6",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.6",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.6"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.6",
+      "SalesTransaction.DataAccess >= 1.0.0",
+      "SalesTransaction.Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2152,11 +2197,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
+      "projectUniqueName": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
       "projectName": "SalesTransaction.Service",
-      "projectPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
+      "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
       "packagesPath": "C:\\Users\\saura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\saura\\OneDrive\\Desktop\\SalesTransactionApplication\\SalesTransaction.Service\\obj\\",
+      "outputPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2176,7 +2221,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {
+              "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj"
+            },
+            "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
+              "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

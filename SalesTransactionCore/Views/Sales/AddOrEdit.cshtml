@@ -12,6 +12,7 @@
         <form asp-action="AddOrEdit" asp-route-id="@Model.SalesId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SalesId" />
+            <input type="hidden" asp-for="InvoiceId"/>
                  <div class="form-group">
                 <label asp-for="CustomerList"></label>
                 <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-control">
