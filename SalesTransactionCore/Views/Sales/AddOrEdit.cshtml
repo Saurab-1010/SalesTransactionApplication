@@ -1,0 +1,82 @@
+﻿@using SalesTransactionCore.ViewModel
+@model SalesViewModel
+
+@{
+    ViewData["Title"] = "AddOrEdit";
+    Layout = null;
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AddOrEdit" asp-route-id="@Model.SalesId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SalesId" />
+                 <div class="form-group">
+                <label asp-for="CustomerList"></label>
+                <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-control">
+                <option value="">Choose Customer</option>
+                </select>
+                @*<span asp-validation-for="CustomerId" class="text-danger"></span>*@
+            </div>
+             <div class="form-group">
+            <label asp-for="ProductList"></label>
+            <select asp-for="ProductId" asp-items="Model.ProductList" class="form-control">
+                <option value="">Choose unit</option>
+            </select>
+           @* <span asp-validation-for="ProductId" class="text-danger"></span>*@
+        </div>
+            <div class="form-group">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" id="rate" oninput="add_number()" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>     
+                    <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" id="quantity" oninput="add_number()" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>   
+                    <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" id="total"/>
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>   
+                    <div class="form-group">
+                <label asp-for="InserDate" class="control-label"></label>
+                <input asp-for="InserDate" class="form-control" />
+                <span asp-validation-for="InserDate" class="text-danger"></span>
+            </div>   
+            <hr>
+           @* <input type="hidden" asp-for="CustomerName" value=" "/>
+            <input type="hidden" asp-for="ProductName" value=" " />*@
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    var rate = document.getElementById("rate");
+    var quantity = document.getElementById("quantity");
+
+    function add_number() {
+        var rate_number = parseFloat(rate.value);
+        if(isNaN(rate_number)) rate_number = 0;
+        var quantity_number = parseFloat(quantity.value);
+        if(isNaN(quantity_number)) quantity_number = 0;
+        var result = rate_number * quantity_number;
+        document.getElementById("total").value = result; 
+
+     
+    }
+
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,41 @@
+﻿@using SalesTransactionApplication.Model
+@model IEnumerable<Customer>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsertDate)
+            </th>
+            <th>
+                 <a onclick="showInPopup('@Url.Action("AddOrEdit","Customer", null, Context.Request.Scheme)','New Customer')" class="btn btn-success text-white"><i class="fas fa-random"></i> New Customer</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertDate)
+            </td>
+      
+            <td>
+                <div>
+                <a onclick="showInPopup('@Url.Action("AddOrEdit", "Customer", new {id=item.CustomerId}, Context.Request.Scheme)','Update Transaction')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+                <form asp-action="Delete" asp-route-id="@item.CustomerId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form> 
+               </div>
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

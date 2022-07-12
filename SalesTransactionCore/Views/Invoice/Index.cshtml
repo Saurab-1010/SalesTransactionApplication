@@ -1,0 +1,89 @@
+﻿@*@model IEnumerable<SalesTransaction.Model.Invoice>*@
+@*@model SalesTransactionCore.ViewModel.InvoiceViewModel*@
+@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<h1>Invoice List</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<table class="table" id="InvoiceGrid">
+    <thead>
+        <tr>
+           <th>
+                @Html.DisplayNameFor(model => model.InvoiceId)
+            </th>
+                <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.InvoiceAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceDate)
+            </th>
+
+            <th>
+@*                 <a onclick="showInPopupInvoice('@Url.Action("GenerateInvoice","Invoice", null, Context.Request.Scheme)','New Invoice')" class="btn btn-success text-white"><i class="fas fa-random"></i>Generate Invoice</a>
+*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceId)
+            </td>
+                 <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+               <td>
+                @Html.DisplayFor(modelItem => item.InvoiceAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceDate)
+            </td>
+    
+     @*       <td>
+            <a onclick="showInPopup('@Url.Action("GenerateInvoice", "Invoice", new {id=item.InvoiceId}, Context.Request.Scheme)','Update Product')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>                                                              
+  
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+@*
+<script>
+function showInPopupInvoice(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+                .done(function (response) {
+                    formDiv.html(response);
+
+                    Popup = formDiv.dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        title: 'Invoice Details',
+                        height: 300,
+                        width: 600,
+                        close: function () {
+                            Popup.dialog('destroy').remove();
+                        }
+
+                    });
+                });
+        }
+</script>*@

@@ -1,0 +1,96 @@
+﻿@*@using SalesTransaction.Model
+@model IEnumerable<Sales>*@
+@*@model IEnumerable<SalesTransactionCore.ViewModel.SalesViewModel>*@
+@model IEnumerable<SalesTransaction.Model.Sales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sales List</h1>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+                <th>
+                @Html.DisplayNameFor(model => model.SalesId)
+            </th>
+@*               <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>*@
+              <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+      @*      <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>*@
+                    <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>      
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+                 <th>
+                @Html.DisplayNameFor(model => model.InserDate)
+            </th>
+    
+           <th>
+                <a onclick="showInPopup('@Url.Action("AddOrEdit","Sales",null,Context.Request.Scheme)','New Sales')" class="btn btn-success text-white"><i class="fas fa-random"></i> New Sales</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+               <td>
+                @Html.DisplayFor(modelItem => item.SalesId)
+            </td>
+   @*             <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>*@
+               <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+      @*      <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>*@
+              <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+                  <td>
+                @Html.DisplayFor(modelItem => item.InserDate)
+            </td>
+    
+            <td>
+                <div>
+                <a onclick="showInPopup('@Url.Action("AddOrEdit","Sales", new {id=item.SalesId}, Context.Request.Scheme)','Sales Transaction')"  class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a> |
+                <form asp-action="Delete" asp-route-id="@item.SalesId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">            
+                <input type="submit" value="Delete" class="btn btn-danger" />|
+                </form>
+      
+                <a onclick="showInPopupInvoice('@Url.Action("Invoice","Sales", new {id=item.SalesId}, Context.Request.Scheme)','Invoice')"  class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Invoice</a> 
+            @* <form asp-action="Invoice" asp-route-id="@item.SalesId" onsubmit="showInPopup('@Url.Action("Invoice","Sales"))" class="d-inline">            
+                <input type="submit" value="Invoice" class="btn btn-secondary" />
+                </form>*@
+
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

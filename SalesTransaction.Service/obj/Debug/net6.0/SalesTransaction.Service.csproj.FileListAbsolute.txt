@@ -1,0 +1,12 @@
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\bin\Debug\net6.0\SalesTransaction.Service.deps.json
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\bin\Debug\net6.0\SalesTransaction.Service.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\bin\Debug\net6.0\SalesTransaction.Service.pdb
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.csproj.AssemblyReference.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.AssemblyInfoInputs.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.AssemblyInfo.cs
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.csproj.CoreCompileInputs.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\refint\SalesTransaction.Service.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\SalesTransaction.Service.pdb
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.Service\obj\Debug\net6.0\ref\SalesTransaction.Service.dll

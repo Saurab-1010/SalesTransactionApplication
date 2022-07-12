@@ -1,0 +1,16 @@
+﻿@using SalesTransaction.Model
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center"><i class="fas fa-comment-dollar text-success"></i>Product</h1>
+
+<div id="view-all">
+    @await Html.PartialAsync("_VIewAll", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

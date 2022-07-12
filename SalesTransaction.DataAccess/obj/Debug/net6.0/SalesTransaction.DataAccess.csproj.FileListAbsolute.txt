@@ -1,0 +1,15 @@
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\bin\Debug\net6.0\SalesTransaction.DataAccess.deps.json
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\bin\Debug\net6.0\SalesTransaction.DataAccess.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\bin\Debug\net6.0\SalesTransaction.DataAccess.pdb
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\bin\Debug\net6.0\SalesTransaction.Model.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\bin\Debug\net6.0\SalesTransaction.Model.pdb
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.csproj.AssemblyReference.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.AssemblyInfoInputs.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.AssemblyInfo.cs
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.csproj.CopyComplete
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\refint\SalesTransaction.DataAccess.dll
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\SalesTransaction.DataAccess.pdb
+C:\Users\saura\OneDrive\Desktop\SalesTransactionApplication\SalesTransaction.DataAccess\obj\Debug\net6.0\ref\SalesTransaction.DataAccess.dll

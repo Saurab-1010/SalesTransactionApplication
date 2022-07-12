@@ -1,0 +1,87 @@
+﻿@*@using SalesTransactionCore.ViewModel
+@model InvoiceViewModel*@
+@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
+
+@{
+    ViewData["Title"] = "Generating Invoice";
+    Layout = null;
+}
+
+<table class="table" id="InvoiceGrid">
+    <thead class="thead-light">
+        <div class="row">
+    <div class="col-md-12">
+        <tr>
+               <th>
+                @Html.DisplayNameFor(model => model.SalesId)
+            </th>     
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>      
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+                 <th>
+                @Html.DisplayNameFor(model => model.InserDate)
+            </th>    
+          <th>               
+                <button type="button" onclick="printPage()" runat="server">Print</button>            
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       
+@foreach (var item in Model) {
+        <tr>
+               <td>
+                @Html.DisplayFor(modelItem => item.SalesId)
+            </td>
+ 
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+                  <td>
+                @Html.DisplayFor(modelItem => item.InserDate)
+            </td>
+            
+            </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>
+
+@section script{
+<script type="text/javascript">
+<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
+
+}
+<script type="text/javascript">
+    function printPage() {
+        window.print();
+    }
+
+ </script>
+
+
+
+
+
+
