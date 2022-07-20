@@ -1,6 +1,7 @@
 ﻿@*@using SalesTransactionCore.ViewModel
 @model InvoiceViewModel*@
-@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
+@*@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>*@
+    @model IEnumerable<SalesTransaction.Model.Invoice>
 
 @{
     ViewData["Title"] = "Generating Invoice";
@@ -12,6 +13,9 @@
         <div class="row">
     <div class="col-md-12">
         <tr>
+                  <th>
+                @Html.DisplayNameFor(model => model.InvoiceId)
+            </th> 
                <th>
                 @Html.DisplayNameFor(model => model.SalesId)
             </th>     
@@ -19,19 +23,17 @@
                 @Html.DisplayNameFor(model => model.CustomerId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rate)
+                @Html.DisplayNameFor(model => model.ProductName)
             </th>      
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                @Html.DisplayNameFor(model => model.InvoiceDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Total)
+                @Html.DisplayNameFor(model => model.InvoiceAmount)
             </th>
-                 <th>
-                @Html.DisplayNameFor(model => model.InserDate)
-            </th>    
+  
           <th>               
-                <button type="button" onclick="printPage()" runat="server">Print</button>            
+                
             </th>
         </tr>
     </thead>
@@ -39,6 +41,10 @@
        
 @foreach (var item in Model) {
         <tr>
+                  <td>
+                @Html.DisplayFor(modelItem => item.InvoiceId)
+            </td>
+ 
                <td>
                 @Html.DisplayFor(modelItem => item.SalesId)
             </td>
@@ -47,19 +53,24 @@
                 @Html.DisplayFor(modelItem => item.CustomerId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rate)
+                @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
+                @Html.DisplayFor(modelItem => item.InvoiceDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Total)
+                @Html.DisplayFor(modelItem => item.InvoiceAmount)
             </td>
-                  <td>
-                @Html.DisplayFor(modelItem => item.InserDate)
-            </td>
-            
+
+                           <tfoot>
+                <td>
+                    <b>Total Rs: @Html.DisplayFor(modelItem => item.InvoiceAmount) </b>
+                </td>
+                </tfoot>
             </tr>
+            <td>
+            <button type="button" onclick="printPage()" runat="server">Print</button>
+            </td>
 }
     </tbody>
 </table>

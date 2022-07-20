@@ -1,4 +1,5 @@
 ﻿using jQueryAjax;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using SalesTransactionCore.ViewModel;
 
 namespace SalesTransactionCore.Controllers
 {
+    //[Authorize]
     public class SalesController : Controller
     {
         private readonly ISalesService _salesService;
@@ -41,9 +43,28 @@ namespace SalesTransactionCore.Controllers
                 model.ProductList.Add(new SelectListItem
                 {
                     Value = data.ProductId.ToString(),
-                    Text = data.ProductName
-                });
+                    Text = data.ProductName,
+                   
+                }) ;
+
+                    model.ProductRate.Add(new SelectListItem
+                    {
+                        Value = data.ProductId.ToString(),
+                        Text = data.Rate.ToString()
+
+                    });
+
+
+               
+
+                //model.ProductList.Add(new ProductSelectItem
+                //{
+                //    ProductId = data.ProductId,
+                //    ProductName = data.ProductName,
+                //    Rate = data.Rate
+                //});
             }
+       
             if(id == 0)
             return View(model);
             else
@@ -91,7 +112,8 @@ namespace SalesTransactionCore.Controllers
                 }
                 sales.Rate = model.Rate;
                 sales.Quantity = model.Quantity;
-                sales.InserDate = sales.InserDate;
+                sales.InserDate = model.InserDate;
+    
 
                 bool isEdit = sales.SalesId > 0 ? true : false;
                 var data = _salesService.AddOrEdit(sales);

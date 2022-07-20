@@ -19,16 +19,16 @@ namespace SalesTransaction.Model
         public virtual Product Product { get; set; }
         public string ProductName { get; set;  }
 
+
         [ForeignKey("Id")]
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
         public string CustomerName { get; set; }
 
-        [ForeignKey("Id")]
-        public int? InvoiceId { get; set; }
-        public virtual Invoice Invoice { get; set; }
-        //public string CustomerName { get; set; }
 
+        //[ForeignKey("Id")]
+        //public int? InvoiceId { get; set; }
+        //public virtual Invoice Invoice { get; set; }
         public int Rate { get; set; }
         public int Quantity { get; set; }
         public decimal Total

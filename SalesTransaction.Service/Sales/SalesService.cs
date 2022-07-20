@@ -18,7 +18,7 @@ namespace SalesTransaction.Repositories
             _context = context;
         }
 
-       
+
 
         public Sales AddOrEdit(Sales sales)
         {
@@ -52,17 +52,17 @@ namespace SalesTransaction.Repositories
         public Sales DeleteConfirmed(int id)
         {
             var salesModel = _context.Sailing.Find(id);
-            if(salesModel != null)
+            if (salesModel != null)
             {
                 _context.Sailing.Remove(salesModel);
                 _context.SaveChanges();
-             
+
             }
 
             return salesModel;
         }
 
-      
+
 
         public Sales GetSale(int id)
         {
@@ -73,7 +73,7 @@ namespace SalesTransaction.Repositories
         public List<Sales> GetSales()
         {
             List<Sales> sales = _context.Sailing.ToList();
-            return sales; 
+            return sales;
         }
 
         public List<Customer> GetCustomers()

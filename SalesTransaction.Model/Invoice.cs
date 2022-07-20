@@ -13,10 +13,28 @@ namespace SalesTransaction.Model
     {
         [Key]
         public int InvoiceId { get; set; }
+
+        //[ForeignKey("Id")]
+        //public int ProductId { get; set; }
+        //public virtual Product Product { get; set; }
+        //public string ProductName { get; set; }
+
+
+        //[ForeignKey("Id")]
+        //public int CustomerId { get; set; }
+        //public virtual Customer Customer { get; set; }
+        //public string CustomerName { get; set; }
+
         [ForeignKey("Id")]
-        public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public int SalesId { get; set; }
+        public virtual Sales Sales { get; set; }
+
         public int InvoiceAmount { get; set; }
         public DateTime InvoiceDate { get; set; } = DateTime.Now;
+        public int CustomerId { get; set; }
+        public string CustomerName { get; set; }    
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+
     }
 }

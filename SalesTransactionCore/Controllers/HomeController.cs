@@ -4,8 +4,7 @@ using SalesTransactionCore.Models;
 using System.Diagnostics;
 
 namespace SalesTransactionCore.Controllers
-{
-    [Authorize]
+{    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

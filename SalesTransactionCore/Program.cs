@@ -44,6 +44,7 @@ builder.Services.AddDbContext<SalesDBContext>(item => item.UseSqlServer(
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ISalesService, SalesService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
 
 //for google 

@@ -5,9 +5,9 @@ using System.Security.Claims;
 
 namespace SalesTransactionCore.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
-        public IActionResult AllUser()
+        public IActionResult Index()
         {          
             return View();
         }

@@ -1,35 +1,58 @@
 ﻿@using SalesTransactionCore.ViewModel
-
-@model SalesViewModel
+@model InvoiceViewModel
 
 @{
-    ViewData["Title"] = "AddOrEdit";
-    Layout = null;
-
-    var productRate = Model.ProductRate;
+    ViewData["Title"] = "Create";
+    Layout = null; 
 }
 
+<h1>Create Invoice</h1>
 
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="AddOrEdit" asp-route-id="@Model.SalesId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+        <form asp-action="Create" asp-route-id="@Model.InvoiceId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="SalesId" />
-             <input type="hidden" asp-for="ProductRate" id="productRate"/>
+@*            <input type="hidden" asp-for="SalesId" />*@
+             <input type="hidden" asp-for="InvoiceId" />
                  <div class="form-group">
                 <label asp-for="CustomerList"></label>
                 <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-control">
                 <option value="">Choose Customer</option>
                 </select>
-                @*<span asp-validation-for="CustomerId" class="text-danger"></span>  *@
+                @*<span asp-validation-for="CustomerId" class="text-danger"></span>*@
             </div>
-             <div class="form-group">
-            <label asp-for="ProductList"></label>
-            <select asp-for="ProductId" asp-items="Model.ProductList" class="form-control" id="productId" onchange="forRate()"  >
+                           <div class="form-group">
+                <label asp-for="ProductList"></label>
+                <select asp-for="ProductId" asp-items="Model.ProductList" class="form-control">
                 <option value="">Choose Product</option>
-            </select>
-        </div>
+                </select>
+                @*<span asp-validation-for="CustomerId" class="text-danger"></span>*@
+            </div>
+     @*            <div class="form-group">
+                <label asp-for="SalesList"></label>
+                <select asp-for="SalesId" asp-items="Model.SalesList" class="form-control">
+                <option value="">Choose Sales Id</option>
+                </select>
+ 
+            </div>*@
+                      <div class="form-group">
+                <label asp-for="SalesId" class="control-label"></label>
+                <input asp-for="SalesId" class="form-control"/>
+                <span asp-validation-for="SalesId" class="text-danger"></span>
+            </div>   
             <div class="form-group">
+                <label asp-for="InvoiceAmount" class="control-label"></label>
+                <input asp-for="InvoiceAmount" class="form-control" id="rate" oninput="add_number()" />
+                <span asp-validation-for="InvoiceAmount" class="text-danger"></span>
+            </div>     
+                    <div class="form-group">
+                <label asp-for="InvoiceDate" class="control-label"></label>
+                <input asp-for="InvoiceDate" class="form-control" id="quantity" oninput="add_number()" />
+                <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+            </div>   
+
+
+            @*<div class="form-group">
                 <label asp-for="Rate" class="control-label"></label>
                 <input asp-for="Rate" class="form-control" id="rate" oninput="add_number()" />
                 <span asp-validation-for="Rate" class="text-danger"></span>
@@ -48,10 +71,9 @@
                 <label asp-for="InserDate" class="control-label"></label>
                 <input asp-for="InserDate" class="form-control" />
                 <span asp-validation-for="InserDate" class="text-danger"></span>
-            </div>   
+            </div>   *@
             <hr>
-           @* <input type="hidden" asp-for="CustomerName" value=" "/>
-            <input type="hidden" asp-for="ProductName" value=" " />*@
+
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -61,19 +83,6 @@
 </div>
 
 <script>
-
-    function forRate(){
-
-        var productId = document.getElementById("productId").value;
-        debugger
-        var productRate = document.getElementById("productRate").value;
-        debugger
-        var array = @Html.Raw(Json.Serialize(productRate));
-        debugger
-        var productData = array.filter(e => e.value == productId);
-        debugger
-        document.getElementById("rate").value = productData[0].text;
-    }
 
     var rate = document.getElementById("rate");
     var quantity = document.getElementById("quantity");
@@ -85,10 +94,13 @@
         if(isNaN(quantity_number)) quantity_number = 0;
         var result = rate_number * quantity_number;
         document.getElementById("total").value = result; 
-   
+
+     
     }
 
+
 </script>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

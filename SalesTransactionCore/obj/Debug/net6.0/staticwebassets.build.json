@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "29znO+AJTRgjZ32mxAFW/QrKGWrJuBFf2kKui5oJaKI=",
+  "Hash": "tVTbhKD7TJXUSV0CVdbuDB2IbiPRW6Fj7DYQueOvWY4=",
   "Source": "SalesTransactionCore",
   "BasePath": "_content/SalesTransactionCore",
   "Mode": "Default",
@@ -1103,6 +1103,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\wwwroot\\js\\jquery-simple-txt-counter.js",
+      "SourceId": "SalesTransactionCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\wwwroot\\",
+      "BasePath": "_content/SalesTransactionCore",
+      "RelativePath": "js/jquery-simple-txt-counter.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery-simple-txt-counter.js"
+    },
+    {
+      "Identity": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\wwwroot\\js\\jquery-simple-txt-counter.min.js",
+      "SourceId": "SalesTransactionCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\wwwroot\\",
+      "BasePath": "_content/SalesTransactionCore",
+      "RelativePath": "js/jquery-simple-txt-counter.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery-simple-txt-counter.min.js"
     },
     {
       "Identity": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransactionCore\\wwwroot\\js\\notify.min.js",

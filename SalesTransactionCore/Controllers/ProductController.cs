@@ -1,4 +1,5 @@
 ﻿using jQueryAjax;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
@@ -7,6 +8,7 @@ using SalesTransaction.Model;
 
 namespace SalesTransactionCore.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -63,7 +65,7 @@ namespace SalesTransactionCore.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             var data = _productService.DeleteConfirmed(id);
             if( data != null)

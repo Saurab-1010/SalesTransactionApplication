@@ -1,7 +1,7 @@
-﻿@*@model IEnumerable<SalesTransaction.Model.Invoice>*@
+﻿@model IEnumerable<SalesTransaction.Model.Invoice>
 @*@model SalesTransactionCore.ViewModel.InvoiceViewModel*@
-@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
-
+@*@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
+*@
 @{
     ViewData["Title"] = "Index";
     
@@ -22,8 +22,11 @@
                 <th>
                 @Html.DisplayNameFor(model => model.CustomerId)
             </th>
+                     <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
+                @Html.DisplayNameFor(model => model.SalesId)
             </th>
               <th>
                 @Html.DisplayNameFor(model => model.InvoiceAmount)
@@ -33,8 +36,8 @@
             </th>
 
             <th>
-@*                 <a onclick="showInPopupInvoice('@Url.Action("GenerateInvoice","Invoice", null, Context.Request.Scheme)','New Invoice')" class="btn btn-success text-white"><i class="fas fa-random"></i>Generate Invoice</a>
-*@
+                <a onclick="showInPopup('@Url.Action("Create","Invoice", null, Context.Request.Scheme)','New Invoice')" class="btn btn-success text-white"><i class="fas fa-random"></i>Create Invoice</a>
+
             </th>
         </tr>
     </thead>
@@ -47,8 +50,11 @@
                  <td>
                 @Html.DisplayFor(modelItem => item.CustomerId)
             </td>
+                      <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
+                @Html.DisplayFor(modelItem => item.SalesId)
             </td>
                <td>
                 @Html.DisplayFor(modelItem => item.InvoiceAmount)
@@ -57,33 +63,12 @@
                 @Html.DisplayFor(modelItem => item.InvoiceDate)
             </td>
     
-     @*       <td>
-            <a onclick="showInPopup('@Url.Action("GenerateInvoice", "Invoice", new {id=item.InvoiceId}, Context.Request.Scheme)','Update Product')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>                                                              
-  
-            </td>*@
+           <td>
+                                                                                
+            <a onclick="showInPopupInvoice('@Url.Action("GenerateInvoice","Invoice", new {id=item.InvoiceId}, Context.Request.Scheme)','Invoice')"  class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Invoice</a> 
+        
+            </td>
         </tr>
 }
     </tbody>
 </table>
-@*
-<script>
-function showInPopupInvoice(url) {
-            var formDiv = $('<div/>');
-            $.get(url)
-                .done(function (response) {
-                    formDiv.html(response);
-
-                    Popup = formDiv.dialog({
-                        autoOpen: true,
-                        resizable: false,
-                        title: 'Invoice Details',
-                        height: 300,
-                        width: 600,
-                        close: function () {
-                            Popup.dialog('destroy').remove();
-                        }
-
-                    });
-                });
-        }
-</script>*@

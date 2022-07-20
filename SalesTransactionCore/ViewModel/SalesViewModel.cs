@@ -10,6 +10,7 @@ namespace SalesTransactionCore.ViewModel
         {
             CustomerList = new List<SelectListItem>();
             ProductList = new List<SelectListItem>();
+            ProductRate = new List<SelectListItem>();
         }
         public int SalesId { get; set; }
         public int ProductId { get; set; }
@@ -38,6 +39,8 @@ namespace SalesTransactionCore.ViewModel
         public List<SelectListItem> CustomerList { get; set; }
         public List<SelectListItem> ProductList { get; set; }
 
+        public List<SelectListItem> ProductRate { get; set; }
+        //public List<ProductSelectItem> ProductList { get; set; }
 
     }
 }

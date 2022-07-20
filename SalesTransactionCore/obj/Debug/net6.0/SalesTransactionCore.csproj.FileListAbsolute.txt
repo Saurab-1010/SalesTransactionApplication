@@ -288,12 +288,6 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Humanizer.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\MessagePack.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\MessagePack.Annotations.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.Mvc.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.Razor.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.Helpers.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Web.WebPages.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -342,7 +336,6 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\NuGet.Common.dll
