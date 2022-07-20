@@ -1,4 +1,3 @@
-In the Process of developing App.
 Resources Used In this project are below: 
 -Here I have used asp.net core mvc
 -For design pattern I have used Repository pattern
