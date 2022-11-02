@@ -63,5 +63,32 @@ namespace SalesTransaction.Repositories
             List<Product> products = _context.Products.ToList();
             return products;
         }
+
+        //public bool IsProductAlreadyExists( string productName)
+        //{
+        //    bool result = false; 
+        //    try
+        //    {
+        //        var productList = GetProducts(productName);
+
+        //        var product = _context.Products.Where(x => x.ProductName == productName).FirstOrDefault();
+        //        if(product != null)
+        //        {
+        //            foreach(var data in productList)
+        //            {
+        //                if(data.ProductName == productName)
+        //                {
+        //                    result = true;
+        //                }
+        //            }
+        //        }
+        //        return result;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e);
+        //        throw;
+        //    }
+        //}
     }
 }

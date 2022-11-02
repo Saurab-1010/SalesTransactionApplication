@@ -8,7 +8,6 @@ using SalesTransactionApplication.Model;
 
 namespace SalesTransactionCore.Controllers
 {
-    [Authorize]
     public class CustomerController : Controller
     {
         //private readonly SalesDBContext _context;

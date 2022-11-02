@@ -2152,11 +2152,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
+      "projectUniqueName": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
       "projectName": "SalesTransaction.Model",
-      "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
+      "projectPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
       "packagesPath": "C:\\Users\\saura\\.nuget\\packages\\",
-      "outputPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\obj\\",
+      "outputPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2212,7 +2212,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2221,7 +2222,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,7 +10,6 @@ using SalesTransactionCore.ViewModel;
 
 namespace SalesTransactionCore.Controllers
 {
-    //[Authorize]
     public class SalesController : Controller
     {
         private readonly ISalesService _salesService;

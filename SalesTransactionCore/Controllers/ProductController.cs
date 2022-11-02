@@ -1,25 +1,30 @@
-﻿using jQueryAjax;
-using Microsoft.AspNetCore.Authorization;
+﻿using BoostChampsPlatform.Services.Services.ExcelHelper;
+using ClosedXML.Excel;
+using jQueryAjax;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
 using SalesTransaction.Interfaces;
 using SalesTransaction.Model;
 
 namespace SalesTransactionCore.Controllers
 {
-    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService productService)
+        private readonly SalesDBContext _db;
+        private readonly IExcelHelper _excelHelper;
+        public ProductController(IProductService productService, SalesDBContext db, IExcelHelper excelHelper)
         {
             _productService = productService;
-        }   
+            _db = db;
+            _excelHelper = excelHelper;
+        }
         public IActionResult Index()
         {
-            List<Product> products = _productService.GetProducts();
-            return View(products);
+            //List<Product> products = _productService.GetProducts();
+            //return View(products);
+            IEnumerable<Product> objProductList = _productService.GetProducts();
+            return View(objProductList);
         }
 
         //GET
@@ -68,7 +73,7 @@ namespace SalesTransactionCore.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var data = _productService.DeleteConfirmed(id);
-            if( data != null)
+            if (data != null)
             {
                 List<Product> products = new List<Product>();
                 products = _productService.GetProducts();
@@ -81,5 +86,98 @@ namespace SalesTransactionCore.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult ImportExcel(IFormFile file)
+        {
+            try
+            {
+                var fileextension = Path.GetExtension(file.FileName);
+                var filename = Guid.NewGuid().ToString() + fileextension;
+                var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedExcelFile", filename);
+                using (FileStream fs = System.IO.File.Create(filepath))
+                {
+                    file.CopyTo(fs);
+                }
+                int rowno = 1;
+
+                XLWorkbook workbook = XLWorkbook.OpenFromTemplate(filepath);
+                var sheets = workbook.Worksheets.First();
+                var rows = sheets.Rows().ToList();
+
+                foreach (var row in rows)
+                {
+                    if (rowno != 1)
+                    {
+                        var productName = row.Cell(1).Value.ToString();
+                        if (string.IsNullOrWhiteSpace(productName) || string.IsNullOrEmpty(productName))
+                        {
+                            break;
+                        }
+                        Product product;
+                        product = _db.Products.Where(p => p.ProductName == row.Cell(1).Value.ToString()).FirstOrDefault();
+                        if (product == null)
+                        {
+                            product = new Product();
+                        }
+                        product.ProductName = row.Cell(1).Value.ToString();
+                        product.Rate = Convert.ToInt32(row.Cell(2).Value);
+                        product.AvailableStock = Convert.ToInt32(row.Cell(3).Value);
+                        if (product.ProductId == null)
+                        {
+                            _db.Products.Add(product);
+                            TempData["success"] = "Product Added Succesfully";
+
+
+                        }
+                        else
+                            _db.Products.Update(product);
+                        TempData["success"] = "Product Updated Succesfully";
+                    }
+                    else
+                    {
+                        rowno = 2;
+                    }
+
+                }
+                _db.SaveChanges();
+                System.IO.File.Delete(@filepath);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult ExportExcel(int ProductId)
+        
+        {
+            try
+            {
+                var productDetails = _productService.GetProduct(ProductId);
+                var productList = _productService.GetProduct(ProductId);
+                var targetDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ExportedExcelFile");
+                if (!Directory.Exists(targetDirectory))
+                {
+                    Directory.CreateDirectory(targetDirectory);
+                }
+                var filename = productDetails.ProductName.Replace(' ', '_') + "_" + DateTime.Now.ToShortDateString().Replace('/', '_').Replace(' ', '_').Replace(':', '_') + ".xlsx";
+                if (!Directory.Exists(filename))
+                {
+                    System.IO.File.Delete(filename);
+                }
+                var savePath = Path.Combine(targetDirectory, filename);
+                //_excelHelper.ListToExcel<>(productDetails, savePath); 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
     }
 }

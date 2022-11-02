@@ -133,7 +133,11 @@ namespace SalesTransactionCore.Controllers
             return View(_invoiceService.GetInvoices().Where(x => x.InvoiceId == id).ToList());
         }
 
-
+        [HttpPost]
+        public IActionResult ImportExcel(IFormFile file)
+        {
+            return View();
+        }
     }
 
 }

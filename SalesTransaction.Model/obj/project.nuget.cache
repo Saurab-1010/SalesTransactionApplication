@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aGE+OvX53GrOEl/MYjRWNsblJaAU6i7g7FVotolAOIY7pyyZBRcJVIeDptbymmqy3t8JA0BTjumzkc6Ma3z/8g==",
+  "dgSpecHash": "1ea75SCVE12NhoK2GN2EVHMr0lB5Y0c2WiVP4UP9ny3hwQ8R+M6VnPJsVa5NCj8hznZBLNzKhVffGJAmVhiCOw==",
   "success": true,
-  "projectFilePath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
+  "projectFilePath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saura\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.6\\microsoft.aspnetcore.cryptography.internal.6.0.6.nupkg.sha512",
     "C:\\Users\\saura\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.6\\microsoft.aspnetcore.cryptography.keyderivation.6.0.6.nupkg.sha512",

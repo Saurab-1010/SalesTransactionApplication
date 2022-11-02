@@ -1,74 +1,195 @@
 ﻿@model IEnumerable<SalesTransaction.Model.Invoice>
 @*@model SalesTransactionCore.ViewModel.InvoiceViewModel*@
-@*@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>
-*@
+@*@model IEnumerable<SalesTransactionCore.ViewModel.InvoiceViewModel>*@
+
+@*@using SalesTransactionCore.ViewModel*@
+
 @{
     ViewData["Title"] = "Index";
-    
+
 }
 
 <h1>Invoice List</h1>
 
+<style>
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+</style>
+
+<label class="custom-file-upload">
+    <input type="file" id="btnExcel" name="file" onclick=importExcel() />
+    Import Excel
+</label>
+
+
 @*<p>
     <a asp-action="Create">Create New</a>
-</p>*@
+    </p>*@
 
-<table class="table" id="InvoiceGrid">
-    <thead>
-        <tr>
-           <th>
-                @Html.DisplayNameFor(model => model.InvoiceId)
-            </th>
-                <th>
-                @Html.DisplayNameFor(model => model.CustomerId)
-            </th>
-                     <th>
-                @Html.DisplayNameFor(model => model.ProductId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SalesId)
-            </th>
-              <th>
-                @Html.DisplayNameFor(model => model.InvoiceAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InvoiceDate)
-            </th>
+@* <input type="hidden" asp-for="model.InvoiceId" id="TeamId" />*@
+@*<form enctype="multipart/form-data" method="post">
+<input id="btnExcel" type="file"  name="btnExcel" accept=".xls,.xlsx" style="display: none;"/>
+<button id="btnUpload" class="btn btn-demo" style="background: #5E72E4; color: white;">Import Excel</button>
+</form>*@
 
-            <th>
-                <a onclick="showInPopup('@Url.Action("Create","Invoice", null, Context.Request.Scheme)','New Invoice')" class="btn btn-success text-white"><i class="fas fa-random"></i>Create Invoice</a>
 
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.InvoiceId)
-            </td>
-                 <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
-            </td>
-                      <td>
-                @Html.DisplayFor(modelItem => item.ProductId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SalesId)
-            </td>
-               <td>
-                @Html.DisplayFor(modelItem => item.InvoiceAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InvoiceDate)
-            </td>
+@*<button id="btnDownload" class="btn btn-demo" style="background: #5E72E4; color: white;" onclick=exportTeamMemberToExcel()>Export Excel</button>
+*@
+<tbody>
+
     
-           <td>
-                                                                                
-            <a onclick="showInPopupInvoice('@Url.Action("GenerateInvoice","Invoice", new {id=item.InvoiceId}, Context.Request.Scheme)','Invoice')"  class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Invoice</a> 
-        
-            </td>
-        </tr>
-}
-    </tbody>
+    <table class="table" id="InvoiceGrid">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceDate)
+                </th>
+
+                <th>
+                    <a onclick="showInPopup('@Url.Action("Create","Invoice", null, Context.Request.Scheme)','New Invoice')" class="btn btn-success text-white"><i class="fas fa-random"></i>Create Invoice</a>
+
+                </th>
+
+            </tr>
+
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+
+                <td>
+
+                    <a onclick="showInPopupInvoice('@Url.Action("GenerateInvoice","Invoice", new {id=item.InvoiceId}, Context.Request.Scheme)','Invoice')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Invoice</a>
+
+                </td>
+            </tr>
+        }
+</tbody>
 </table>
+
+  <p id="g"></p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+
+    //$('#btnUpload').on('click',function(){
+
+    //    $('#btnExcel').trigger('click');
+
+    //    if($('#btnExcel')[0].files.length != 0){
+
+    //        var formData = new FormData();
+    //        formData.append("file", $("#btnExcel")[0].files[0]);
+    //        $.ajax({
+    //            type: "POST",
+    //            url: '@Url.Action("ImportExcel", "Invoice")',
+    //            data: formData,
+    //            processData: false,
+    //            contentType: false
+    //    })
+    //    }
+    //    else{
+    //        //alert("upload file");
+    //        return false;
+    //    }     
+    //});
+
+      //$('#btnUpload').on('click',function(){
+
+      //  $('#btnExcel').trigger('click');
+
+      //  if(document.getElementById("btnExcel").files.length == 0){
+      //      //alert("File is not Selected");
+      //      return false; 
+      //  }
+      //  var formData = new FormData();
+      //  formData.append("file", $("#btnExcel")[0].files[0]);
+      //  $.ajax({
+      //      type: "POST",
+      //      url: '@Url.Action("ImportExcel","Invoice")',
+      //      data: formData, 
+      //      processData: false, 
+      //      contentType: false
+      //  })
+      //  });
+        
+        ////if($('#btnExcel')[0].files.length != 0){
+        //    //var fData = document.getElementById("btnExcel").value;   
+        //    if($('#btnExcel')[0].files.length != 0){
+           
+        //    var result = confirm("Are you sure want to upload this file")
+        //    if(result == true){
+        //    var formData = new FormData();
+        //    formData.append("file", $("#btnExcel")[0].files[0]);
+        //   //if(formData != null){
+        //    $.ajax({
+        //        type: "POST",
+        //        url: '@Url.Action("ImportExcel", "Invoice")',
+        //        data: formData,
+        //        processData: false,
+        //        contentType: false
+        //    })
+        //    }
+        //    }
+        
+        //else{
+        //    //alert("upload file");
+        //    return false;
+        //}     
+    //});
+
+    function importExcel(){
+        var formData = new FormData();
+        debugger;
+        formData.append("file", $("#btnExcel")[0].files[0]);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ImportExcel","Invoice")',
+            data: formData, 
+            processData: false, 
+            contentType: false
+        })
+    }
+
+</script>

@@ -285,7 +285,11 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\SalesTransactionCore.runtimeconfig.json
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\SalesTransactionCore.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\SalesTransactionCore.pdb
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\ClosedXML.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\ExcelNumberFormat.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Humanizer.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Irony.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\MessagePack.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\MessagePack.Annotations.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -347,6 +351,7 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\NuGet.ProjectModel.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\NuGet.Protocol.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\NuGet.Versioning.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\SixLabors.Fonts.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -358,10 +363,12 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Drawing.Common.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.IO.Packaging.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Runtime.Caching.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Security.Permissions.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\XLParser.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.resources.dll
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.resources.dll

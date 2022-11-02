@@ -4,9 +4,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>279aef29-c598-43d5-a9df-3e248541b1b5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Images\fuji.jpg" />
+    <Content Include="Images\lake.jpg" />
+    <Content Include="Images\troll-face.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.97.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
@@ -27,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\UploadedExcelFile\" />
   </ItemGroup>
 
 </Project>

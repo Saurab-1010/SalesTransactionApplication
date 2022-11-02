@@ -65,13 +65,9 @@
     function forRate(){
 
         var productId = document.getElementById("productId").value;
-        debugger
         var productRate = document.getElementById("productRate").value;
-        debugger
         var array = @Html.Raw(Json.Serialize(productRate));
-        debugger
         var productData = array.filter(e => e.value == productId);
-        debugger
         document.getElementById("rate").value = productData[0].text;
     }
 

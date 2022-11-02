@@ -1,9 +1,19 @@
 ﻿@using SalesTransaction.Model
+@*@using SalesTransactionCore.ViewModel*@
 @model IEnumerable<Product>
 
 
-<table class="table">
+<button id="btnUpload" class="btn btn-demo" style="background: #5E72E4; color: white;" onclick=importProductFromExcel()>Import Excel</button>
+<input type="file" id="pExcel" name="file" accept=".xls,.xlsx"/><br /><br />
+@*<button id="btnDownload" class="btn btn-demo" style="background: #5E72E4; color: white;" onclick=exportProductToExcel()>Export Excel</button>*@
+<button onclick="ExportToExcel('xlsx')" class="btn btn-demo" style="background: #5E72E4; color: white;">Export Excel</button>
+
+
+
+<table class="table" id="tbl_exporttable_to_xls">
+ @*   <input type="hidden" asp-for="ProductId" id="ProductId" />*@
     <thead>
+        
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
@@ -16,7 +26,8 @@
             </th>
             <th>
                  <a onclick="showInPopup('@Url.Action("AddOrEdit","Product", null, Context.Request.Scheme)','New Product')" class="btn btn-success text-white"><i class="fas fa-random"></i>Create New Product</a>
-            </th>
+                     
+             </th>
         </tr>
     </thead>
     <tbody>
@@ -45,3 +56,35 @@
 }
     </tbody>
 </table>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+<script>
+function importProductFromExcel(){
+    if(document.getElementById("pExcel").files.length == 0)
+    {
+        alert("Upload your file first");
+        return false;
+    }
+    
+    var formData = new FormData();
+    formData.append("file", $("#pExcel")[0].files[0]);
+    //formData.append("productName", 'Id');
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("ImportExcel", "Product")',
+        data: formData,
+        processData: false, 
+        contentType: false
+    })
+}
+
+function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('tbl_exporttable_to_xls');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('Product.' + (type || 'xlsx')));
+    }
+
+</script>

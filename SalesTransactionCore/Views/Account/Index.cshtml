@@ -4,25 +4,208 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+
+@*<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+
+    else
+    {
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
 </ul>
+
+<p><b>This is for page speed insight</b></p>
+
+    <button id="myBtn" class="btn btn-primary">Fetch Data</button>
+
+<div id="resultcontainer"></div>
+
+
+@section scripts{
+    <script type="text/javascript">
+    $("#myBtn").click(function(){
+    run();
+    });
+    function run() {
+    const url = setUpQuery();
+    fetch(url)
+    .then(response => response.json())
+    .then(json => {
+    // See https://developers.google.com/speed/docs/insights/v5/reference/pagespeedapi/runpagespeed#response
+    // to learn more about each of the properties in the response object.
+    showInitialContent(json.id);
+    const cruxMetrics = {
+    "First Contentful Paint": json.loadingExperience.metrics.FIRST_CONTENTFUL_PAINT_MS.category,
+    "First Input Delay": json.loadingExperience.metrics.FIRST_INPUT_DELAY_MS.category
+    };
+    showCruxContent(cruxMetrics);
+    const lighthouse = json.lighthouseResult;
+    const lighthouseMetrics = {
+    'First Contentful Paint': lighthouse.audits['first-contentful-paint'].displayValue,
+    'Speed Index': lighthouse.audits['speed-index'].displayValue,
+    'Time To Interactive': lighthouse.audits['interactive'].displayValue,
+    'First Meaningful Paint': lighthouse.audits['first-meaningful-paint'].displayValue,
+    'First CPU Idle': lighthouse.audits['first-cpu-idle'].displayValue,
+    'Estimated Input Latency': lighthouse.audits['estimated-input-latency'].displayValue
+    };
+    showLighthouseContent(lighthouseMetrics);
+    });
+    }
+
+
+    function setUpQuery() {
+    const api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
+    const parameters = {
+    url: encodeURIComponent('https://developers.google.com')
+    };
+    let query = `${api}?`;
+    for (key in parameters) {
+    query += `${key}=${parameters[key]}`;
+    }
+    return query;
+    }
+
+    function showInitialContent(id) {
+    var resultcontainer = document.getElementById("resultcontainer");
+    //document.body.innerHTML = '';
+    const title = document.createElement('h1');
+    title.textContent = 'PageSpeed Insights API Demo';
+    resultcontainer.appendChild(title);
+    const page = document.createElement('p');
+    page.textContent = `Page tested: ${id}`;
+    resultcontainer.appendChild(page);
+    }
+
+    function showCruxContent(cruxMetrics) {
+    const cruxHeader = document.createElement('h2');
+    cruxHeader.textContent = "Chrome User Experience Report Results";
+    resultcontainer.appendChild(cruxHeader);
+    for (key in cruxMetrics) {
+    const p = document.createElement('p');
+    p.textContent = `${key}: ${cruxMetrics[key]}`;
+    resultcontainer.appendChild('p');
+    }
+    }
+
+    function showLighthouseContent(lighthouseMetrics) {
+    const lighthouseHeader = document.createElement('h2');
+    lighthouseHeader.textContent = "Lighthouse Results";
+    resultcontainer.appendChild(lighthouseHeader);
+    for (key in lighthouseMetrics) {
+    const p = document.createElement('p');
+    p.textContent = `${key}: ${lighthouseMetrics[key]}`;
+    resultcontainer.appendChild('p');
+    }
+    }
+
+    run();
+
+    </script>
+}*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dot {
+            height: 155px;
+            width: 155px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .button {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center">PageInsight Speed</h2> <br/>
+
+<div style="text-align: center">
+    SEO: <span class="dot" id="seo"></span>
+    Performance: <span class="dot" id="per"></span>
+    Accessibility: <span class="dot" id="acc"></span>
+    Best Practices: <span class="dot" id="bes"></span>
+</div>
+
+
+</body>
+</html> 
+
+
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+     /**
+      * Sample JavaScript code for pagespeedonline.pagespeedapi.runpagespeed
+      * See instructions for running APIs Explorer code samples locally:
+      * https://developers.google.com/explorer-help/code-samples#javascript
+      */
+
+
+
+    function loadClient() {
+       gapi.client.setApiKey("AIzaSyA3P4g_WKIcxq8W-5J8HX-XVQd5DgpD3BA");
+       return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/pagespeedonline/v5/rest")
+           .then(function() { console.log("GAPI client loaded for API"); },
+                 function(err) { console.error("Error loading GAPI client for API", err); });
+     }
+     // Make sure the client is loaded before calling this method.
+     function execute() {
+       return gapi.client.pagespeedonline.pagespeedapi.runpagespeed({
+         "url": "https://boostchamps.nl",
+         "category": [
+           "ACCESSIBILITY",
+           "BEST_PRACTICES",
+           "PERFORMANCE",
+           "PWA",
+           "SEO",
+           "CATEGORY_UNSPECIFIED"
+         ],
+         "locale": "en",
+         "strategy": "DESKTOP" //MOBILE
+       })
+           .then(function(response) {
+               var jsonData=JSON.parse(response.body);
+               //var seo=jsonData.lighthouseResult.categories.seo.title;
+               var seo =  jsonData.lighthouseResult.categories.seo.title +" "+ jsonData.lighthouseResult.categories.seo.score;
+               var performance = jsonData.lighthouseResult.categories.performance.title  +" "+  jsonData.lighthouseResult.categories.performance.score;
+               var accessibility = jsonData.lighthouseResult.categories.accessibility.title  +" "+  jsonData.lighthouseResult.categories.accessibility.score;
+               var bestpractices = jsonData.lighthouseResult.categories["best-practices"].title  +" "+  jsonData.lighthouseResult.categories["best-practices"].score;
+               document.getElementById('seo').innerText = seo;
+               document.getElementById('per').innerText = performance;
+               document.getElementById('acc').innerText = accessibility;
+               document.getElementById('bes').innerText = bestpractices;
+               //Handle the results here (response.result has the parsed body).
+               console.log("Response", response);
+           },
+           function(err) { console.error("Execute error", err); });
+     }
+     gapi.load("client");
+
+
+
+</script>
+<br/>
+<button onclick="loadClient()">load</button>
+<button onclick="execute()">execute</button>
+
+

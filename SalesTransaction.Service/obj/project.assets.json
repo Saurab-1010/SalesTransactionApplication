@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "DocumentFormat.OpenXml/2.18.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.6": {
         "type": "package",
         "compile": {
@@ -569,6 +581,15 @@
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Packaging.dll": {}
+        }
+      },
       "System.Runtime.Caching/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -752,6 +773,28 @@
     }
   },
   "libraries": {
+    "DocumentFormat.OpenXml/2.18.0": {
+      "sha512": "5fmehgA7WmJD551QwBhvjSsEmMbCQ/yfW83ZLfbPx1TeQGm0ikGIwAvz/XfO4veCjYWpBQfFH9elVhC2Y+HatQ==",
+      "type": "package",
+      "path": "documentformat.openxml/2.18.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "documentformat.openxml.2.18.0.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.dll",
+        "lib/net35/DocumentFormat.OpenXml.xml",
+        "lib/net40/DocumentFormat.OpenXml.dll",
+        "lib/net40/DocumentFormat.OpenXml.xml",
+        "lib/net46/DocumentFormat.OpenXml.dll",
+        "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.6": {
       "sha512": "hYAiGgU/ZiSZZxlS2UlHrXpxF4KAXTFHJdrnnbB4Tta9Vg+ioVjp9k7DRYIZ/WmIu+XMLFoBBuD6jVPF2Ryekw==",
       "type": "package",
@@ -1812,6 +1855,33 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
+    "System.IO.Packaging/4.7.0": {
+      "sha512": "9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "type": "package",
+      "path": "system.io.packaging/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.IO.Packaging.dll",
+        "lib/net46/System.IO.Packaging.xml",
+        "lib/netstandard1.3/System.IO.Packaging.dll",
+        "lib/netstandard1.3/System.IO.Packaging.xml",
+        "lib/netstandard2.0/System.IO.Packaging.dll",
+        "lib/netstandard2.0/System.IO.Packaging.xml",
+        "ref/net46/System.IO.Packaging.dll",
+        "ref/net46/System.IO.Packaging.xml",
+        "ref/netstandard1.3/System.IO.Packaging.dll",
+        "ref/netstandard1.3/System.IO.Packaging.xml",
+        "ref/netstandard2.0/System.IO.Packaging.dll",
+        "ref/netstandard2.0/System.IO.Packaging.xml",
+        "system.io.packaging.4.7.0.nupkg.sha512",
+        "system.io.packaging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Runtime.Caching/4.7.0": {
       "sha512": "NdvNRjTPxYvIEhXQszT9L9vJhdQoX6AQ0AlhjTU+5NqFQVuacJTfhPVAvtGWNA2OJCqRiR/okBcZgMwI6MqcZg==",
       "type": "package",
@@ -2182,6 +2252,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DocumentFormat.OpenXml >= 2.18.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.6",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.6",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
@@ -2197,11 +2268,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
+      "projectUniqueName": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
       "projectName": "SalesTransaction.Service",
-      "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
+      "projectPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Service\\SalesTransaction.Service.csproj",
       "packagesPath": "C:\\Users\\saura\\.nuget\\packages\\",
-      "outputPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Service\\obj\\",
+      "outputPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2222,11 +2293,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {
-              "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj"
+            "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj": {
+              "projectPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.DataAccess\\SalesTransaction.DataAccess.csproj"
             },
-            "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
-              "projectPath": "D:\\MyPractise\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj"
+            "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj": {
+              "projectPath": "D:\\gitUpload\\SalesTransactionApplication\\SalesTransaction.Model\\SalesTransaction.Model.csproj"
             }
           }
         }
@@ -2241,6 +2312,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "DocumentFormat.OpenXml": {
+            "target": "Package",
+            "version": "[2.18.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.6, )"
@@ -2264,7 +2339,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2273,7 +2349,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

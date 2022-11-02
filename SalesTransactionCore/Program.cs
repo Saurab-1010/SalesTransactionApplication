@@ -1,3 +1,4 @@
+using BoostChampsPlatform.Services.Services.ExcelHelper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SalesTransaction.DataAccess;
@@ -36,6 +37,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<SalesDBContext>(item => item.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection"),
     s => s.MigrationsAssembly("SalesTransactionCore")
@@ -45,6 +49,8 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ISalesService, SalesService>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+
+builder.Services.AddTransient<IExcelHelper, ExcelHelper>();
 
 
 //for google 
@@ -65,6 +71,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
