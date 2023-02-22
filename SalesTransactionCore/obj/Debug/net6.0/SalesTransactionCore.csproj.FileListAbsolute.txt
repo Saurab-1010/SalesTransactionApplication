@@ -565,3 +565,12 @@ D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.pdb
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.genruntimeconfig.cache
 D:\MyPractise\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\ref\SalesTransactionCore.dll
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.csproj.AssemblyReference.cache
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.AssemblyInfoInputs.cache
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.AssemblyInfo.cs
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.csproj.CoreCompileInputs.cache
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.MvcApplicationPartsAssemblyInfo.cs
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.MvcApplicationPartsAssemblyInfo.cache
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.RazorAssemblyInfo.cache
+D:\gitUpload\SalesTransactionApplication\SalesTransactionCore\obj\Debug\net6.0\SalesTransactionCore.RazorAssemblyInfo.cs

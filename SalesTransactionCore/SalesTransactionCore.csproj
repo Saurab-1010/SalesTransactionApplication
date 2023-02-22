@@ -8,9 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Images\fuji.jpg" />
-    <Content Include="Images\lake.jpg" />
-    <Content Include="Images\troll-face.png" />
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
   </ItemGroup>
 
   <ItemGroup>
